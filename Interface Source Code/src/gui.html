@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <style>
+        body {
+            background: #101010;
+            justify-content: center;
+        }
+        #container {
+            display: flex;
+            flex: 1;
+        }
+        #T1, #T2 {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            margin-right: 10px;
+            flex: 1;
+        }
+        input[type="text"], input[type="number"] {
+            background: #1f1f1f;
+            border: none;
+            color: white;
+            margin-bottom: 1vh;
+            width: auto;
+            border-radius: 5px;
+        }
+        #swap-button {
+            color: white;
+            background: #1f1f1f;
+            border: none;
+            position: relative;
+            top: 100px;
+            transition: 0.5s;
+        }
+        #swap-button::before, #swap-button::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            box-sizing: border-box;
+            transition: 0.5s;
+            z-index: -1;
+        }
+        #swap-button::before {
+            border-left: 2px solid #ffffff;
+            border-top: 2px solid #ffffff;
+        }
+
+        #swap-button::after {
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        #swap-button:hover::before {
+            top: -5px;
+            left: -5px;
+        }
+
+        #swap-button:hover::after {
+            top: 5px;
+            left: 5px;
+        }
+
+        #swap-button:hover, #update-button:hover {
+            color: black;
+            background: white;
+        }
+
+        #swap-button {
+            color: white;
+            background: #1f1f1f;
+            border: none;
+            position: relative;
+            top: 100px;
+            transition: 0.5s;
+        }
+
+        #update-button {
+            color: white;
+            background: #1f1f1f;
+            border: none;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        #swap-button:active, #update-button:active {
+            background: black;
+            color: white;
+            transition: 0.2s;
+        }
+
+        #swap-button:active::before {
+            border-left: 10px solid #de1b22;
+            border-top: 10px solid #de1b22;
+            transition: 0.2s;
+        }
+
+        #swap-button:active::after {
+            border-right: 10px solid #3363ff;
+            border-bottom: 10px solid #3363ff;
+            transition: 0.2s;
+        }
+
+        #update-button::before, #update-button::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            transition: 0.5s;
+        }
+        #update-button::before {
+            background: #de1b22;
+        }
+        #update-button::after {
+            background: #3363ff;
+        }
+        #update-button:hover::before {
+            left: -10px;
+        }
+        #update-button:hover::after {
+            left: 10px;
+        }
+        #update-button:active::before {
+            left: -50%;
+            background: transparent;
+        }
+        #update-button:active::after {
+            left: 50%;
+            background: transparent;
+        }
+        </style>
+    </head>
+    <body>
+        <script src="gui.js"></script>
+        <div id="container">
+            <div id="T1">
+                <h2 style="color: #de1b22;">Team 1</h2>
+                <input id="T1I" type="text" maxlength="4" placeholder="Team Initials" title="Team Initials">
+                <input id="T1N" type="text" maxlength="35" placeholder="Team Name" title="Team Name">
+                <input id="T1P" type="number" min="0" placeholder="Point Total for Current Set" title="Point Total for Current Set" min="0" oninput="this.value = this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+                <input id="T1S" type="number" min="0" placeholder="Amount of Set Wins" title="Amount of Set Wins" min="0" oninput="this.value = this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+            </div>
+            <div id="swap">
+                <button id="swap-button">Swap Teams</button>
+            </div>
+            <div id="T2">
+                <h2 style="color: #3363ff; text-align: right;">Team 2</h2>
+                <input id="T2I" type="text" maxlength="5" placeholder="Team Initials" title="Team Initials">
+                <input id="T2N" type="text" maxlength="35" placeholder="Team Name" title="Team Name">
+                <input id="T2P" type="number" min="0" placeholder="Point Total for Current Set" title="Point Total for Current Set" min="0" oninput="this.value = this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+                <input id="T2S" type="number" min="0" placeholder="Amount of Set Wins" title="Amount of Set Wins" min="0" oninput="this.value = this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null">
+            </div>
+        </div>
+        <hr>
+        <h2 style="text-align: center; color:white">Match Information</h2>
+        <div id="container" style="color: white; justify-content: center;">
+            Sets Required To Win: 
+            <input id="SR" style="margin-left: 10px;" title="Sets Required to Win" type="number" min="1" oninput="this.value = this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null">
+        </div>
+        <div id="container">
+            <input id="SN" style="margin-left:2.5%; margin-right: 2.5%; width: 45%;" placeholder="Set Number" title="Set Number" type="number" min="1" oninput="this.value = this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null">
+            <input id="RN" style="margin-left:2.5%; margin-right: 2.5%; width: 45%;" placeholder="Race Number" title="Race Number" type="number" min="1" oninput="this.value = this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null">
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <button id="update-button">Update Information</button>
+        </div>
+    </body>
+</html>

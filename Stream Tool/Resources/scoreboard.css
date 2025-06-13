@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('BaiJamjuree-Medium.ttf');
+}
+#score-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Bai Jamjuree';
+}
+.scoreboard {
+    width: 30vw;
+    height: 7vh;
+    position:relative;
+    transform: skew(7.5deg);
+    display: flex;
+}
+.scoreboard::before {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(to right, #de1b22, #720e11);
+    content:'';
+    z-index: -1;
+    top: 1.25vh;
+    left:-1.25vh;
+}
+
+#score-right {
+    transform: skew(-7.5deg);
+}
+#score-right::before {
+    top: 1.25vh;
+    left: 1.25vh;
+    background: linear-gradient(to left, #3363ff, #152869);
+}
+#board {
+    background: repeating-conic-gradient(#0a0a0a 0% 25%, #202020 0 50%) 0% / 3vh 3vh;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+#TIL, #TNL, #TSL > p {
+    transform: skew(-7.5deg);
+}
+
+#TIR, #TNR, #TSR > p {
+    transform: skew(7.5deg);
+}
+
+#TIL, #TIR {width: 20%}
+#TNL, #TNR {width: 80%}
+#TSL, #TSR {
+    display: flex;
+    background: #202020;
+    width: 5vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+}
+#TSL {color: #de1b22;}
+#TSR {color: #3363ff;}
+#race-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 5vw;
+    position: relative;
+    justify-content: center;
+}
+#race-info::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: black;
+    left: -50%;
+    z-index: -2;
+}
+
+@keyframes transition-left-lead {
+    0% {
+        background: #202020;
+        color: #de1b22;
+    }
+    100% {
+        background: #de1b22;
+        color: white;
+    }
+}
+
+@keyframes transition-left-away {
+    0% {
+        background: #de1b22;
+        color: white;
+    }
+    100% {
+        background: #202020;
+        color: #de1b22;
+    }
+}
+
+@keyframes transition-right-lead {
+    0% {
+        background: #202020;
+        color: #3363ff;
+    }
+    100% {
+        background: #3363ff;
+        color: white;
+    }
+}
+
+@keyframes transition-right-away {
+    0% {
+        background: #3363ff;
+        color: white;
+    }
+    100% {
+        background: #202020;
+        color: #3363ff;
+    }
+}
