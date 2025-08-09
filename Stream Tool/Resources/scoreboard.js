@@ -20,7 +20,7 @@ function getInfo() {
 	return new Promise(function (resolve) {
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener("load", reqListener);
-		oReq.open("GET", 'Resources/Scoreboard.json');
+		oReq.open("GET", 'Resources/scoreboard.json');
 		oReq.send();
 
 		//will trigger when file loads
