@@ -1,13 +1,13 @@
 {
-  "Team1I": "LHS",
-  "Team1N": "Vahalla Vroomers",
-  "Team1P": 125,
-  "Team1S": 2,
-  "Team2I": "DHS",
-  "Team2N": "Panthers Kart Blue",
-  "Team2P": 125,
-  "Team2S": 1,
-  "SetNum": 3,
+  "Team1I": "",
+  "Team1N": "",
+  "Team1P": 0,
+  "Team1S": 0,
+  "Team2I": "",
+  "Team2N": "",
+  "Team2P": 0,
+  "Team2S": 0,
+  "SetNum": 1,
   "RaceNum": 1,
   "SetsToWin": 2
 }
